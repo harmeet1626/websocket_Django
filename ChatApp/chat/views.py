@@ -25,5 +25,10 @@ def login_view(request, *args, **kwargs):
     return render(request, 'chat/LoginPage.html')
 
 
+def logout(request,*args, **kwargs):
+	auth.logout(request)
+	return redirect('/login/')
+      
+
 def login(request,*args, **kwargs):
     return render(request, 'chat/LoginPage.html')
