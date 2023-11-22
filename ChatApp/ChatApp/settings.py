@@ -14,6 +14,10 @@ SECRET_KEY = 'django-insecure-y8bd=1+4o*q(7lc1=%gvdd79*9+bpu-fbi48th3nh=@zbd*m_#
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # Add any additional authentication backends if needed
+]
 
 
 # Application definition
@@ -47,7 +51,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # or 'django.contrib.sessions.backends.cache', etc.
+SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
 
 ROOT_URLCONF = 'ChatApp.urls'
 
