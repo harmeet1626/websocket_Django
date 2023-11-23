@@ -18,7 +18,7 @@ def login_view(request, *args, **kwargs):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('/chat/')  # Replace 'home' with the name of your home view or URL
+            return redirect('/')  # Replace 'home' with the name of your home view or URL
         else:
             messages.error(request, 'Invalid username or password.')
 
